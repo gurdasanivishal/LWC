@@ -5,12 +5,16 @@ export default class ChildCom extends LightningElement {
     @track message;
 
     handleChange(event){
-        this.message = event.target.valuel
+        console.log('=== handleChange called ====');
+        this.message = event.target.value;
+        console.log('message = ',this.message);
     }
 
     handleSubmit(){
+        console.log('=== handleSubmit called ====');
+        console.log(this.message);
         const eventMessage = new CustomEvent('simpleevent',{
-            detail:this.message
+            detail : this.message
         });
         this.dispatchEvent(eventMessage);
     }
